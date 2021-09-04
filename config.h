@@ -1,5 +1,9 @@
 /* See LICENSE file for copyright and license details. */
-
+#include <X11/XF86keysym.h>
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute",   "1", "toggle",  NULL };
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -74,6 +78,11 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,                       XF86XK_AudioLowerVolume,      spawn,          {.v = upvol } },
+	{ 0,                       XF86XK_AudioRaiseVolume,      spawn,          {.v = downvol } },
+	{ 0,                       XF86XK_AudioMute,      spawn,          {.v = mutevol } },
+	{ 0,                       XF86XK_AudioMicMute,      spawn,          {.v = mutemic } },
+	
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
