@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+/* 调用系统默认多媒体键 */
 #include <X11/XF86keysym.h>
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
@@ -76,14 +77,19 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *print_screen_cmd[] = { "scrot", "%Y-%m-%d-%H%M%S.png", "-e", "mv $f ~/images/screenshots", NULL };
-
+static const char *chromium[] = { "chromium", NULL };
+static const char *brightnessup[] = { "xbacklight", "-inc", "3", NULL }; /* Fn + Home（此组合有唯一Keycode） 是Thinkpad x220的增加亮度 */
+static const char *brightnessDown[] = { "xbacklight", "-dec", "3", NULL }; /* Fn + End（此组合有唯一Keycode） 是Thinkpad x220的降低亮度 */
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,                       XF86XK_AudioLowerVolume,      spawn,          {.v = upvol } },
-	{ 0,                       XF86XK_AudioRaiseVolume,      spawn,          {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute,      spawn,          {.v = mutevol } },
-	{ 0,                       XF86XK_AudioMicMute,      spawn,          {.v = mutemic } },
-	{ 0,                            XK_Print,   spawn,          {.v = print_screen_cmd } },
+	{ 0,                      0x1008ff41,      spawn,          {.v = chromium } },/* 将ThinkVantage键绑定为chromium浏览器，0x1008ff41为16进制keysym*/
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = upvol } },
+	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = downvol } },
+	{ 0,                XF86XK_AudioMute,      spawn,          {.v = mutevol } },
+	{ 0,             XF86XK_AudioMicMute,      spawn,          {.v = mutemic } },
+	{ 0,                        XK_Print,      spawn,          {.v = print_screen_cmd } },
+	{ 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = brightnessup } },/* 系统默认增加亮度的KeySym*/
+	{ 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightnessdown } },/* 系统默认降低亮度的KeySym*/
 	
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
