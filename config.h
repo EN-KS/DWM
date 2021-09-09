@@ -3,7 +3,7 @@
 /* 调用系统默认多媒体键 */
 #include <X11/XF86keysym.h>
 
-# 第一种方法
+# 第一种方法 换成systemd 不好使了，可能我之前设置了什么或者装了什么我忘了
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
