@@ -10,3 +10,17 @@ xmodmap -pke > ~/.Xmodmap
 2. xmodmap -e "add mod3 = q"
 3. xmodmap ~./Xmodmap 
 4. 修改 ~/.xinitrc 顶部加入 (sleep 15s && xmodmap ~/.Xmodmap) & 来延迟命令防止被其他命令覆盖
+
+# 安装的软件
+vim (--with x compiled from source)
+paru
+pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-devel linux-headers xdg-user-dirs xdg-utils bluez bluez-utils alsa-utils acpi acpi_call you-get ranger w3m picom xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel wireguard fcitx5-im fcitx5-rime fcitx5-material-color scrot wqy-zenhei ttf-fireflysung 
+
+# 针对DWM
+1.dwmstatus
+2.slock
+3.dwm patches:
+(1)dwm alpha
+(2)dwm fullgap
+(3)st alpha
+(4)st scrollback
