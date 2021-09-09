@@ -1,10 +1,24 @@
 /* See LICENSE file for copyright and license details. */
+
 /* 调用系统默认多媒体键 */
 #include <X11/XF86keysym.h>
+
+# 第一种方法
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute",   "1", "toggle",  NULL };
+
+# 第二种方法运用alsamixer
+static const char *upvolume[]  = {"amixer", "-qM", "sset", "Master", "5%+", "unmute", NULL};     # 增加5%的音量：amixer -qM sset Master 5%+
+static const char *downvolume[]  = {"amixer", "-qM", "sset", "Master", "5%-", "unmute", NULL};  # 减少10%的音量：amixer -qM sset Master 5%-
+static const char *mutevolume[]  = {"amixer", "-qM", "sset", "Master", "toggle", NULL};               # 静音：amixer -qM sset Master toggle
+static const char *mutemic[]  = {"amixer", "-qM", "sset", "Capture", "toggle", NULL};               # 静麦克风：amixer -qM sset Master toggle
+
+————————————————
+版权声明：本文为CSDN博主「kler」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_36390239/article/details/112990746
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
