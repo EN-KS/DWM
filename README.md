@@ -24,3 +24,8 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 (2)dwm fullgap
 (3)st alpha
 (4)st scrollback
+
+# 关于wireguard无法链接google
+在client.conf里面：
+1.MTU设置为1280，详见 https://yooooex.com/2019/05/23/wireguard-deploy/
+2.添加 DNS = 8.8.8.8
