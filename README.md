@@ -33,6 +33,6 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 如果不配置则使用系统默认 DNS
 可以指定单个 DNS：DNS = 1.1.1.1
 也可以指定多个 DNS：DNS = 1.1.1.1,8.8.8.8}
- *解决了，解决方案：更改系统默认dns：在/etc/resolve.conf 中添加两行：
+//通过原理解决了，解决方案：更改系统默认dns：在/etc/resolve.conf 中添加两行：
 nameserver 8.8.8.8
 nameserver 8.8.4.4)
