@@ -28,6 +28,11 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 # 关于wireguard无法链接google
 在client.conf里面：
 1.MTU设置为1280，详见 https://yooooex.com/2019/05/23/wireguard-deploy/
-2.添加 DNS = 8.8.8.8 (google)(但是不懂为什么每次重启都需要进wg0.conf设置一次然后重新wg-quick up wg0 *解决方案：更改系统默认dns：在/etc/resolve.conf 中添加两行：
+2.添加 DNS = 8.8.8.8 (google)(但是不懂为什么每次重启都需要进wg0.conf设置一次然后重新wg-quick up wg0 {查到的原理：通过 DHCP 向客户端宣告 DNS 服务器。客户端将会使用这里指定的 DNS 服务器来处理 VPN 子网中的 DNS 请求，但也可以在系统中覆盖此选项。例如：
+
+如果不配置则使用系统默认 DNS
+可以指定单个 DNS：DNS = 1.1.1.1
+也可以指定多个 DNS：DNS = 1.1.1.1,8.8.8.8}
+ *解决了，解决方案：更改系统默认dns：在/etc/resolve.conf 中添加两行：
 nameserver 8.8.8.8
 nameserver 8.8.4.4)
