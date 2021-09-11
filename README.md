@@ -39,3 +39,7 @@ nameserver 8.8.4.4)(详见https://fuckcloudnative.io/posts/wireguard-docs-practi
 11.09.2021
 # DWM Status Bar
 如果你用 xsetroot, 在loop中加入 xsetroot -name "$ status | tr '\n' ' '" //把newlines 替换成spaces来解决dwm变慢的问题
+# Arch Linux
+添加源
+1./etc/pacman.d/mirrorlist (添加了中国国内源，韩国源因为vpc走韩国)
+2./etc/pacman.conf （添加了中文社区仓库archlinuxcn）
