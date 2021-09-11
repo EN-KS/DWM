@@ -35,4 +35,4 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 也可以指定多个 DNS：DNS = 1.1.1.1,8.8.8.8}
 //通过原理解决了，解决方案：更改系统默认dns：在/etc/resolve.conf 中添加两行：
 nameserver 8.8.8.8
-nameserver 8.8.4.4)
+nameserver 8.8.4.4)(详见https://fuckcloudnative.io/posts/wireguard-docs-practice/ 以及 https://www.osyunwei.com/archives/2839.html)
