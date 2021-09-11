@@ -37,3 +37,5 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 nameserver 8.8.8.8
 nameserver 8.8.4.4)(详见https://fuckcloudnative.io/posts/wireguard-docs-practice/ 以及 https://www.osyunwei.com/archives/2839.html)
 11.09.2021
+# DWM Status Bar
+如果你用 xsetroot, 在loop中加入 xsetroot -name "$ status | tr '\n' ' '" //把newlines 替换成spaces来解决dwm变慢的问题
