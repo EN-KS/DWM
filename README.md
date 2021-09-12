@@ -36,7 +36,9 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 //通过原理解决了，解决方案：更改系统默认dns：在/etc/resolve.conf 中添加两行：
 nameserver 8.8.8.8
 nameserver 8.8.4.4)(详见https://fuckcloudnative.io/posts/wireguard-docs-practice/ 以及 https://www.osyunwei.com/archives/2839.html)
-解决wireguard在laptop休眠时断掉： https://www.reddit.com/r/WireGuard/comments/jdwb50/guide_wireguard_for_windows_and_linux_tunnel/
+解决wireguard在laptop休眠时断掉：
+https://www.reddit.com/r/WireGuard/comments/jdwb50/guide_wireguard_for_windows_and_linux_tunnel/
+https://askubuntu.com/questions/1189178/systemd-resolve-reset-after-wake-from-suspend
 11.09.2021
 # DWM Status Bar
 如果你用 xsetroot, 在loop中加入 xsetroot -name "$ status | tr '\n' ' '" //把newlines 替换成spaces来解决dwm变慢的问题
