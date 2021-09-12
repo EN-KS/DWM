@@ -25,6 +25,7 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 (2)dwm fullgap
 (3)st alpha
 (4)st scrollback
+(5)st  w3m images
 
 # 关于wireguard无法链接google
 在client.conf里面：
