@@ -14,7 +14,7 @@ xmodmap -pke > ~/.Xmodmap
 # 按需要安装的软件
 vim (--with x compiled from source)
 paru
-pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-devel linux-headers xdg-user-dirs xdg-utils bluez bluez-utils alsa-utils acpi acpi_call you-get ranger w3m picom xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel wireguard fcitx5-im fcitx5-rime fcitx5-material-color scrot wqy-zenhei ttf-fireflysung otf-fira-code resolvconf(for wireguard)
+pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-devel linux-headers xdg-user-dirs xdg-utils bluez bluez-utils alsa-utils acpi acpi_call you-get ranger w3m picom xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel wireguard fcitx5-im fcitx5-rime fcitx5-material-color scrot wqy-zenhei ttf-fireflysung otf-fira-code resolvconf(for wireguard) mpv 
 
 # 针对DWM
 1.dwmstatus
