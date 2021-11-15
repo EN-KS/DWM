@@ -1,7 +1,7 @@
 09.12.2021 突然发现有人跟我用一样的laptop 装 arch linux 和 dwm https://gist.github.com/palopezv/efd34059af6126ad970940bcc6a90f2e
 This is my DWM backup, version init
 dwm/config.h里面记录了当前修改过的设置
-已经打了alpha补丁（config.h 里面的代码只有keybinding有参考价值，其他的可能有误改或意外删除）
+已经打了alpha补丁（config.def.h 和config.h(里面也不一样)里面的代码只有keybinding有参考价值，其他的可能有误改或意外删除）
 xmodmap用法：
 假设要改modifier：mod3 改为 q
 首先 创建文件 
@@ -20,14 +20,16 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 1.dwm-bar
 2.slock
 3.dwm patches:
-(1)dwm alpha
-(2)dwm fullgap
-(3)st alpha
-(4)st scrollback
-(5)st  w3m images
-(6)dwm hide vacant tags
+(1)dwm-alpha
+(2)dwm-fuctionalgaps+pertag
+(3)dwm-hide_vacant_tags
+(4)st-alpha
+(5)st-scrollback
+(6)st-w3m
+(7)st-hidecursor
+(8)st-anysize
 # 关于wireguard无法链接google
-在client.conf里面：
+wireguard 在client.conf里面：
 1.MTU设置为1280，详见 https://yooooex.com/2019/05/23/wireguard-deploy/
 2.添加 DNS = 8.8.8.8 (google)(但是不懂为什么每次重启都需要进wg0.conf设置一次然后重新wg-quick up wg0 {查到的原理：通过 DHCP 向客户端宣告 DNS 服务器。客户端将会使用这里指定的 DNS 服务器来处理 VPN 子网中的 DNS 请求，但也可以在系统中覆盖此选项。例如：
 
