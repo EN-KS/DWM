@@ -51,6 +51,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
+static const char *tags[] = { "☯", "☰", "☱", "☲", "☳", "☴", "☵", "☶", "☷" };
+
 static const char *tags[] = { "\ue62e", "\ue27f", "\ue26d", "\uf6e6", "\ue368", "\ue243", "\ue273", "\ue7a9", "\ue255" };
 
 static const Rule rules[] = {
@@ -93,7 +95,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *print_screen_cmd[] = { "scrot", "%Y-%m-%d-%H%M%S.png", "-e", "mv $f ~/images/screenshots", NULL };
 static const char *chromium[] = { "chromium", NULL };
 static const char *brightnessup[] = { "xbacklight", "-inc", "3", NULL }; /* Fn + Home（此组合有唯一Keycode） 是Thinkpad x220的增加亮度 */
-static const char *brightnessDown[] = { "xbacklight", "-dec", "3", NULL }; /* Fn + End（此组合有唯一Keycode） 是Thinkpad x220的降低亮度 */
+static const char *brightnessdown[] = { "xbacklight", "-dec", "3", NULL }; /* Fn + End（此组合有唯一Keycode） 是Thinkpad x220的降低亮度 */
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                      0x1008ff41,      spawn,          {.v = chromium } },/* 将ThinkVantage键绑定为chromium浏览器，0x1008ff41为16进制keysym*/
