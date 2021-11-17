@@ -29,6 +29,10 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 (7)st-hidecursor
 (8)st-anysize
 # 关于wireguard无法链接google
+(wireguard 要先启动resolve才不会报错)
+  
+systemctl enable systemd-resolved.service
+  
 wireguard 在client.conf里面：
 1.MTU设置为1280，详见 https://yooooex.com/2019/05/23/wireguard-deploy/
 2.添加 DNS = 8.8.8.8 (google)(但是不懂为什么每次重启都需要进wg0.conf设置一次然后重新wg-quick up wg0 {查到的原理：通过 DHCP 向客户端宣告 DNS 服务器。客户端将会使用这里指定的 DNS 服务器来处理 VPN 子网中的 DNS 请求，但也可以在系统中覆盖此选项。例如：
