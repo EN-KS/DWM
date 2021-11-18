@@ -13,11 +13,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCode Nerd Font:size=16" };
 static const char dmenufont[]       = "FiraCode Nerd Font:size=16";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#ffffff";
-static const char col_cyan[]        = "#37474F";
+static const char col_gray1[]       = "#100D23";
+static const char col_gray2[]       = "#9E9E61";
+static const char col_gray3[]       = "#9E619E";
+static const char col_gray4[]       = "#619E9E";
+static const char col_cyan[]        = "#372963";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
