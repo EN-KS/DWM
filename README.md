@@ -57,7 +57,8 @@ https://bbs.archlinux.org/viewtopic.php?id=248843
 #Ranger
 zv: set use_preview_script! (for preview plain text)
 # For Bluetooth headphones paired, but no sound after a while
-https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after-a-while/33141
+https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after-a-while/33141 
+
 #Screen and External keyboard keymaps
 //screen:
 xrandr --output DP1 --mode 1920x1080 --output LVDS1 --mode 1366x768 --left-of
