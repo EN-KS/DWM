@@ -15,7 +15,9 @@ xmodmap -pke > ~/.Xmodmap
 # 按需要安装的软件
 vim (--with x compiled from source)
 paru
+```
 pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-devel linux-headers xdg-user-dirs xdg-utils bluez bluez-utils pulseaudio-bluetooth alsa-utils acpi acpi_call you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip-iconv unrar p7zip picom xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel wireguard fcitx5-im fcitx5-rime fcitx5-material-color scrot wqy-zenhei ttf-fireflysung otf-fira-code nerd-fonts-fire-code resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman powerline-console-fonts fish <starship oh-my-fish>(这两个从github下载）ntfs-3g(使windows-linux u盘文件格式可以共通https://segmentfault.com/a/1190000016491615 ）
+```
 # 针对DWM
 1.dwm-bar
 2.slock
@@ -31,8 +33,10 @@ pacman -S tlp iptables-nft ipset firewalled terminus-font efibootmgr iwd base-de
 # 关于wireguard无法链接google
 (wireguard 要先启动resolve才不会报错)
   
+```
 systemctl enable systemd-resolved.service
-  
+```
+
 wireguard 在client.conf里面：
 1.MTU设置为1280，详见 https://yooooex.com/2019/05/23/wireguard-deploy/
 2.添加 DNS = 8.8.8.8 (google)(但是不懂为什么每次重启都需要进wg0.conf设置一次然后重新wg-quick up wg0 {查到的原理：通过 DHCP 向客户端宣告 DNS 服务器。客户端将会使用这里指定的 DNS 服务器来处理 VPN 子网中的 DNS 请求，但也可以在系统中覆盖此选项。例如：
@@ -49,7 +53,7 @@ https://askubuntu.com/questions/1189178/systemd-resolve-reset-after-wake-from-su
 https://bbs.archlinux.org/viewtopic.php?id=248843
 11.09.2021
 # DWM Status Bar
-如果你用 xsetroot, 在loop中加入 xsetroot -name "$ status | tr '\n' ' '" //把newlines 替换成spaces来解决dwm变慢的问题
+如果你用 xsetroot, 在loop中加入 ```xsetroot -name "$ status | tr '\n' ' '"``` //把newlines 替换成spaces来解决dwm变慢的问题
 # Arch Linux
 添加源
 1./etc/pacman.d/mirrorlist (添加了中国国内源，韩国源因为vpc走韩国)
@@ -61,15 +65,23 @@ https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after
 
 # Screen and External keyboard keymaps
 //screen:
-xrandr --output DP1 --mode 1920x1080 --output LVDS1 --mode 1366x768 --left-of
-DP1
+```xrandr --output DP1 --mode 1920x1080 --output LVDS1 --mode 1366x768 --left-of DP1```
 //keymap:
+```
 setxkbmap -model pc104 -layout us -variant halmak -option ctrl:swapcaps
-# Arch linux -Syyu更新时遇到这个问题 error: jansson: signature from "Eli Schwartz <eschwartz@archlinux.org>" is marginal trust       :: File /var/cache/pacman/pkg/jansson-2.10-3-x86_64.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
-
-  This should solve this problem:
+```
+# Arch linux -Syyu更新时遇到这个问题 
+```
+error: jansson: signature from "Eli Schwartz <eschwartz@archlinux.org>" is marginal trust       
+:: File /var/cache/pacman/pkg/jansson-2.10-3-x86_64.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
+```
+This should solve this problem:
+  ```
   pacman-key --init
   pacman-key --populate archlinux
+  ```
 # 用ntfs-3g 格式化u盘为ntfs格式的命令
-  sudo pacman -S ntfs-3g
+```
+sudo pacman -S ntfs-3g
 sudo mkfs.ntfs -Q -L labelname /dev/设备名称
+```
