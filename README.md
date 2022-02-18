@@ -1,4 +1,5 @@
-09.12.2021 突然发现有人跟我用一样的laptop 装 arch linux 和 dwm https://gist.github.com/palopezv/efd34059af6126ad970940bcc6a90f2e
+09.12.2021  
+突然发现有人跟我用一样的laptop 装 arch linux 和 dwm https://gist.github.com/palopezv/efd34059af6126ad970940bcc6a90f2e
 This is my DWM backup, version init
 dwm/config.h里面记录了当前修改过的设置
 已经打了alpha补丁（config.def.h 和config.h(里面也不一样)里面的代码只有keybinding有参考价值，其他的可能有误改或意外删除）
