@@ -65,7 +65,7 @@ xrandr --output DP1 --mode 1920x1080 --output LVDS1 --mode 1366x768 --left-of
 DP1
 //keymap:
 setxkbmap -model pc104 -layout us -variant halmak -option ctrl:swapcaps
-# error: jansson: signature from "Eli Schwartz <eschwartz@archlinux.org>" is marginal trust       :: File /var/cache/pacman/pkg/jansson-2.10-3-x86_64.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
+# Arch linux 升级时遇到这个问题 error: jansson: signature from "Eli Schwartz <eschwartz@archlinux.org>" is marginal trust       :: File /var/cache/pacman/pkg/jansson-2.10-3-x86_64.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
 
   This should solve this problem:
   pacman-key --init
