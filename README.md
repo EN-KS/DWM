@@ -77,6 +77,7 @@ https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after
 ```
 setxkbmap -model pc104 -layout us -variant halmak -option ctrl:swapcaps
 ```
+Feb.18.2022  
 # Arch linux -Syyu更新时遇到这个问题  
 ```
 error: jansson: signature from "Eli Schwartz <eschwartz@archlinux.org>" is marginal trust       
