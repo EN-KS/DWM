@@ -1,4 +1,4 @@
-09.12.2021  
+Sep.12.2021  
 突然发现有人跟我用一样的laptop 装 arch linux 和 dwm  
 https://gist.github.com/palopezv/efd34059af6126ad970940bcc6a90f2e  
 
@@ -58,7 +58,8 @@ nameserver 8.8.4.4)
 https://www.reddit.com/r/WireGuard/comments/jdwb50/guide_wireguard_for_windows_and_linux_tunnel/  
 https://askubuntu.com/questions/1189178/systemd-resolve-reset-after-wake-from-suspend  
 https://bbs.archlinux.org/viewtopic.php?id=248843  
-11.09.2021  
+
+Nov.09.2021  
 # DWM Status Bar
 如果你用 xsetroot, 在loop中加入 ```xsetroot -name "$ status | tr '\n' ' '"``` //把newlines 替换成spaces来解决dwm变慢的问题
 # Arch Linux
