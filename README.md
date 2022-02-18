@@ -70,3 +70,6 @@ setxkbmap -model pc104 -layout us -variant halmak -option ctrl:swapcaps
   This should solve this problem:
   pacman-key --init
   pacman-key --populate archlinux
+#用ntfs-3g 格式化u盘为ntfs格式的命令
+  sudo pacman -S ntfs-3g
+sudo mkfs.ntfs -Q -L labelname /dev/sdb1
