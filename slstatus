@@ -1,0 +1,10 @@
+static const struct arg args[] = {
+	/* function format          argument */
+    { run_command, " 蓼%4s ",   "amixer sget PCM | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+	{ netspeed_rx, " ﯲ %sB/s ",  "ens33"},
+	{ netspeed_tx, " ﯴ %sB/s ",  "ens33"},
+	{ cpu_perc, " ﬙ %s%% ",     NULL },
+    { ram_perc, "  %s%% ",     NULL },
+    { datetime, "  %s",        "%a %F %T"},
+    { run_command, "  ",       "%2s |" },
+};
