@@ -94,3 +94,5 @@ This should solve this problem:
 sudo pacman -S ntfs-3g
 sudo mkfs.ntfs -Q -L labelname /dev/设备名称
 ```
+# `battery.c` 和 `slstatus`
+这两个都是slstatus status-bar的部分改动过的配置文件
