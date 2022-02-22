@@ -73,7 +73,8 @@ https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after
 
 # Screen and External keyboard keymaps
 //screen:  
-```xrandr --output DP1 --mode 1920x1080 --output LVDS1 --mode 1366x768 --left-of DP1```
+```xrandr --output DP1 --mode 1920x1080 --output LVDS1 --mode 1366x768 --below DP1```
+
 //keymap:  
 ```
 setxkbmap -model pc104 -layout us -variant halmak -option ctrl:swapcaps
