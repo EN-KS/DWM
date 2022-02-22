@@ -1,10 +1,15 @@
 static const struct arg args[] = {
 	/* function format          argument */
-    { run_command, " 蓼%4s ",   "amixer sget PCM | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-	{ netspeed_rx, " ﯲ %sB/s ",  "ens33"},
-	{ netspeed_tx, " ﯴ %sB/s ",  "ens33"},
+    { run_command, " 蓼%4s ",   "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+    { battery_state, " %s ",  "BAT0"},
+	{ battery_perc, "%s%% ",  "BAT0"},
+/*	{ battery_remaining, "  ",  "BAT0"},*/
+	{ wifi_essid, " ﯟ %s ",  "wlan0"},
+	{ netspeed_rx, " ﯲ %sB/s ",  "wlan0"},
+	{ netspeed_tx, " ﯴ %sB/s ",  "wlan0"},
 	{ cpu_perc, " ﬙ %s%% ",     NULL },
     { ram_perc, "  %s%% ",     NULL },
     { datetime, "  %s",        "%a %F %T"},
-    { run_command, "  ",       "%2s |" },
+/*    { run_command, "  ",       "%2s |" },*/
 };
+
