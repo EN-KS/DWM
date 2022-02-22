@@ -77,7 +77,8 @@ https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after
 
 //keymap:  
 ```
-setxkbmap -model pc104 -layout us -variant halmak -option ctrl:swapcaps
+setxkbmap -model pc104 -layout halmak_no_qwerty -option ctrl:swapcaps
+
 ```
 Feb.18.2022  
 # Arch linux -Syyu更新时遇到这个问题  
