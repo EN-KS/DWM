@@ -45,7 +45,7 @@ powerline-console-fonts fish <starship oh-my-fish>(这两个从github下载）
 
 ntfs-3g(使windows-linux u盘文件格式可以共通https://segmentfault.com/a/1190000016491615 ）
 
-surf webkit2gtk gcr(these two for surf)
+surf webkit2gtk gcr(these two for surf) sl
 
 ```
 # 针对DWM  
