@@ -122,3 +122,5 @@ sudo mkfs.ntfs -Q -L labelname /dev/设备名称
 ```
 # `battery.c` 和 `slstatus`
 这两个都是slstatus status-bar的部分改动过的配置文件
+
+# .xpdfrc 为 xpdf的个人配置文件
