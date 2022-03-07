@@ -111,6 +111,16 @@ error: jansson: signature from "Eli Schwartz <eschwartz@archlinux.org>" is margi
 :: File /var/cache/pacman/pkg/jansson-2.10-3-x86_64.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
 ```
 This should solve this problem:  
+That means that the package integrity cannot be checked by its PGP signature. Often the reason is that you may have done the previous update a while ago. In the meantime some keys by Arch developers may have changed, and some new updates are signed with the new (PGP) keys.
+
+Please try by updating the keyring first:
+```
+pacman -Sy archlinux-keyring
+then try again
+
+pacman -Syu
+```
+And let us know. Prefix the commands with sudo if you are using a user (non-root) shell.
   ```
   pacman-key --init
   pacman-key --populate archlinux
