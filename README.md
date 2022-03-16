@@ -47,6 +47,8 @@ ntfs-3g(使windows-linux u盘文件格式可以共通https://segmentfault.com/a/
 
 surf webkit2gtk gcr(these two for surf) sl dash checkbashisms(these two for relink /bin/sh to dash 4 times faster than bash)
 
+sxiv(image viewer)
+
 ```
 # 针对DWM  
 1.dwm-bar  
