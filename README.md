@@ -33,7 +33,7 @@ bluez bluez-utils pulseaudio-bluetooth alsa-utils acpi acpi_call
 
 you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip-iconv unrar p7zip 
 
-picom xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel 
+picom-jonaburg-git xorg-xprop xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel 
 
 wireguard fcitx5-im fcitx5-rime fcitx5-material-color scrot 
 
