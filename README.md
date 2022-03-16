@@ -136,3 +136,4 @@ sudo mkfs.ntfs -Q -L labelname /dev/设备名称
 这两个都是slstatus status-bar的部分改动过的配置文件
 
 # .xpdfrc 为 xpdf的个人配置文件
+# picom.conf is config file for picom-jonaburg-git
