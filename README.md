@@ -25,21 +25,19 @@ paru
 ```
 pacman -S 
 
-tlp iptables-nft ipset firewalled terminus-font 
+tlp iptables-nft ipset terminus-font 
 
 efibootmgr iwd base-devel linux-headers xdg-user-dirs xdg-utils 
 
 bluez bluez-utils pulseaudio-bluetooth alsa-utils acpi acpi_call 
 
-you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip-iconv unrar p7zip 
+you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip unrar p7zip 
 
 picom-jonaburg-git xorg-xprop xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel 
 
 wireguard fcitx5-im fcitx5-rime fcitx5-material-color scrot 
 
-wqy-zenhei ttf-fireflysung otf-fira-code nerd-fonts-fire-code 
-
-resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
+wqy-zenhei ttf-fireflysung resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
 
 powerline-console-fonts fish <starship oh-my-fish>(这两个从github下载）
 
