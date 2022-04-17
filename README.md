@@ -126,7 +126,11 @@ And let us know. Prefix the commands with sudo if you are using a user (non-root
   pacman-key --populate archlinux
   ```
   
-# pacman安装paru时出现ssl证书错误解决办法：https://www.cnblogs.com/james-wangx/p/16111521.html `sudo timedatectl set-ntp true`
+# pacman安装paru时出现ssl证书错误
+
+解决办法：https://www.cnblogs.com/james-wangx/p/16111521.html `sudo timedatectl set-ntp true`
+
+
 # 用ntfs-3g 格式化u盘为ntfs格式的命令  
 ```
 sudo pacman -S ntfs-3g
