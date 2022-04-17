@@ -20,7 +20,7 @@ xmodmap -pke > ~/.Xmodmap
 
 # 按需要安装的软件  
 vim (--with x compiled from source)  
-paru： git clone https://aur.archlinux.org/paru-bin  
+paru： `git clone https://aur.archlinux.org/paru-bin` ,then `cd paru-bin` `makepkg -si`
 
 ```
 pacman -S 
