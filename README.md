@@ -59,7 +59,13 @@ sxiv(image viewer)
 (5)st-scrollback  
 (6)st-w3m  
 (7)st-hidecursor  
-(8)st-anysize  
+(8)st-anysize
+
+安装expac并按日期查询
+
+用 expac 查询最近安装的 20 个软件包：
+`expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20`
+
 # 关于wireguard无法链接google  
 (wireguard 要先启动resolve才不会报错)  
   
