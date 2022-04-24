@@ -27,7 +27,7 @@ pacman -S
 
 tlp iptables-nft ipset clash proxychains-ng
 
-efibootmgr iwd base-devel linux-headers xdg-user-dirs xdg-utils 
+efibootmgr iwd base-devel linux-headers
 
 bluez bluez-utils pulseaudio-bluetooth alsa-utils acpi acpi_call 
 
