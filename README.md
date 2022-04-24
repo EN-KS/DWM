@@ -25,7 +25,7 @@ paru： `git clone https://aur.archlinux.org/paru.git` ,then `cd paru-bin` `make
 ```
 pacman -S 
 
-tlp iptables-nft ipset terminus-font 
+tlp iptables-nft ipset clash proxychains-ng
 
 efibootmgr iwd base-devel linux-headers xdg-user-dirs xdg-utils 
 
@@ -35,11 +35,11 @@ you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip unrar p7zip
 
 picom-jonaburg-git xorg-xprop xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel 
 
-wireguard fcitx5-im fcitx5-rime fcitx5-material-color scrot 
+fcitx5-im fcitx5-rime fcitx5-material-color scrot 
 
-wqy-zenhei ttf-fireflysung resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
+wqy-zenhei ttf-fireflysung otf-nerd-fonts-fira-code otf-font-awesome-4 
 
-powerline-console-fonts fish <starship oh-my-fish>(这两个从github下载）
+fish <starship oh-my-fish>(这两个从github下载）wireguard resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
 
 ntfs-3g(使windows-linux u盘文件格式可以共通https://segmentfault.com/a/1190000016491615 ）
 
