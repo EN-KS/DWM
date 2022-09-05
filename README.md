@@ -151,5 +151,9 @@ sudo mkfs.ntfs -Q -L labelname /dev/设备名称
 
 # 科学上网：https://blog.linioi.com/posts/clash-on-arch/
 
-# brtfs 文件系統 & systemd-boot
+# 安裝ArchLinux時選擇 brtfs 文件系統 & systemd-boot
 要在arch.conf 的 `options` 里加入一句 `rootflags=subvol=@`, 同時，mkinitcpio.conf 的 `module()`里也加入 `brtfs`
+
+https://arch.icekylin.online/
+
+https://bbs.archlinux.org/viewtopic.php?id=267207
