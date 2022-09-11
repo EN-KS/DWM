@@ -157,3 +157,16 @@ sudo mkfs.ntfs -Q -L labelname /dev/设备名称
 https://arch.icekylin.online/
 
 https://bbs.archlinux.org/viewtopic.php?id=267207
+
+# Graphic Drivers
+
+     > Nvidia
+     > 前往 https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/ 查看 Nvidia 私有驱动最新版本不支持的显卡列表，如果你的显卡不在这个列表里，那么你可以使用最新的 Nvidia 私有驱动，反之则需要使用开源驱动或旧版私有驱动（通过 AUR 安装）。
+     > 
+     > 最新私有驱动：sudo pacman -S nvidia nvidia-settings cuda xorg-server-devel lib32-nvidia-utils lib32-opencl-nvidia
+     > 
+     > 最新私有驱动的 OpenCL: sudo pacman -S opencl-nvidia ocl-icd
+     > 
+     > 开源驱动：sudo pacman -S mesa mesa-vdpau libva-mesa-driver lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver
+     > 
+     > 某些 Nvidia 显卡型号使用开源驱动可能无法完全发挥性能，或者某些功能无法正常工作。
