@@ -31,13 +31,13 @@ efibootmgr iwd base-devel linux-headers
 
 bluez bluez-utils pulseaudio-bluetooth alsa-utils acpi acpi_call 
 
-you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip unrar p7zip 
+you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip rar p7zip 
 
 picom-jonaburg-git xorg-xprop xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel 
 
 fcitx5-im fcitx5-rime fcitx5-material-color scrot 
 
-wqy-zenhei ttf-fireflysung otf-nerd-fonts-fira-code otf-font-awesome 
+wqy-zenhei otf-nerd-fonts-fira-code otf-font-awesome 
 
 fish <starship oh-my-fish>(这两个从github下载）wireguard resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
 
