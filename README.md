@@ -189,3 +189,6 @@ https://bbs.archlinux.org/viewtopic.php?id=267207
      > 
      > OpenCL：如果你的 Intel CPU 架构是 Broadwell 或以上的安装intel-compute-runtime ocl-icd，反之则安装beignet ocl-icd，beignet 需要通过 AUR 安装。
      > Linux LVM学习总结——Insufficient Free Extents for a Logical Volume: https://www.cnblogs.com/kerrycode/p/9745060.html
+     > 系统分区时用ssd给机械硬盘加速技术lvmcache 
+     > https://www.lovelycxy.com/h/en0KJQB8c1Q.html
+     > https://www.cnblogs.com/jfLin/p/9542812.html
