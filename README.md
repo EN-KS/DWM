@@ -198,4 +198,7 @@ https://bbs.archlinux.org/viewtopic.php?id=267207
      > 系统分区时用ssd给机械硬盘加速技术lvmcache 
      > https://www.lovelycxy.com/h/en0KJQB8c1Q.html
      > https://www.cnblogs.com/jfLin/p/9542812.html
-luna_pinyin.sogou.dict.yaml：给fcitx5-rime输入法加入搜狗词库
+     
+luna_pinyin.sogou.dict.yaml：给fcitx5-rime输入法加入搜狗标准词库
+
+luna_pinyin.sogoun.dict.yaml：给fcitx5-rime输入法加入搜狗网络词库
