@@ -202,3 +202,6 @@ https://bbs.archlinux.org/viewtopic.php?id=267207
 luna_pinyin.sogou.dict.yaml：给fcitx5-rime输入法加入搜狗标准词库
 
 luna_pinyin.sogoun.dict.yaml：给fcitx5-rime输入法加入搜狗网络词库
+
+Archlinux in windows subsystem for linux:
+error: https://github.com/DDoSolitary/LxRunOffline/issues/171
