@@ -18,7 +18,7 @@ xmodmap -pke > ~/.Xmodmap
 3. xmodmap ~./Xmodmap  
 4. 修改 ~/.xinitrc 顶部加入 (sleep 15s && xmodmap ~/.Xmodmap) & 来延迟命令防止被其他命令覆盖  
 
-# 按需要安装的软件  
+# Archliunx 按需要安装的软件  
 vim (--with x compiled from source)  
 paru： `git clone https://aur.archlinux.org/paru.git` ,then `cd paru-bin` `makepkg -si`
 
@@ -48,9 +48,12 @@ surf webkit2gtk gcr(these two for surf) sl dash checkbashisms(these two for reli
 sxiv(image viewer)
 
 ```
-# DWM 安装的一些软件  
-···
-dwm-bar  slock  
+# DWM 安装的一些插件  
+```
+dwm software:
+1.dwm-bar 
+2.slocks
+
 dwm patches:  
 (1)dwm-alpha  
 (2)dwm-fuctionalgaps+pertag  
@@ -60,7 +63,7 @@ dwm patches:
 (6)st-w3m  
 (7)st-hidecursor  
 (8)st-anysize
-···
+```
 # 安装expac并按日期查询
 
 用 expac 查询最近安装的 20 个软件包：
