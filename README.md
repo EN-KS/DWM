@@ -157,13 +157,6 @@ https://kb.kywiki.xyz/linux2.html
 
 设定代理规则：clash通过Razord面板实现：http://clash.razord.top/#/proxies
 
-# 安裝ArchLinux時選擇 brtfs 文件系統 & systemd-boot
-要在arch.conf 的 `options` 里加入一句 `rootflags=subvol=@`, 同時，mkinitcpio.conf 的 `module()`里也加入 `brtfs`
-
-https://arch.icekylin.online/
-
-https://bbs.archlinux.org/viewtopic.php?id=267207
-
 clash in Windows 10, wsl2 config:
 
 wsl2 + archlinux + clash .bashrc toggle proxy setting: 
@@ -176,6 +169,15 @@ hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\s).*')
 alias sp='export https_proxy="http://${hostip}:7890";export http_proxy="http://${hostip}:7890";export all_proxy="socks5://${hostip}:7890";export ALL_PROXY="socks5://${hostip}:7890";'
 alias usp='unset https_proxy; unset http_proxy; unset all_proxy; unset ALL_PROXY;'
 ```
+
+# 安裝ArchLinux時選擇 brtfs 文件系統 & systemd-boot
+要在arch.conf 的 `options` 里加入一句 `rootflags=subvol=@`, 同時，mkinitcpio.conf 的 `module()`里也加入 `brtfs`
+
+https://arch.icekylin.online/
+
+https://bbs.archlinux.org/viewtopic.php?id=267207
+
+
 
 # Graphic Drivers
 
