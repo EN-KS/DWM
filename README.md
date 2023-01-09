@@ -151,13 +151,22 @@ sudo mkfs.ntfs -Q -L labelname /dev/设备名称
 
 # 科学上网：
 
+## clash on archlinux
+
 https://blog.linioi.com/posts/clash-on-arch/ 
 
 https://kb.kywiki.xyz/linux2.html
 
 设定代理规则：clash通过Razord面板实现：http://clash.razord.top/#/proxies
 
-clash in Windows 10, wsl2 config:
+put these in .bashrc in order to toggle proxy in specific terminal for such as updating neovim packer:
+
+```
+alias sp='export http_proxy="127.0.0.1:7890";export https_proxy="127.0.0.1:7890";export socks_proxy="127.0.0.1:7891";'
+alias usp='unset http_proxy; unset https_proxy; unset socks_proxy;'
+```
+
+## clash on Windows 10, wsl2 config:
 
 wsl2 + archlinux + clash .bashrc toggle proxy setting: 
 
