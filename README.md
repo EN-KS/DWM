@@ -101,8 +101,8 @@ Nov.09.2021
 1./etc/pacman.d/mirrorlist (添加了中国国内源，韩国源因为vpc走韩国)  
 2./etc/pacman.conf （添加了中文社区仓库archlinuxcn） 
 
-#Ranger
-zv: set use_preview_script! (for preview plain text)
+# Ranger
+`zv: set use_preview_script!` (for preview plain text)
 
 # For Bluetooth headphones paired, but no sound after a while
 https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after-a-while/33141  
