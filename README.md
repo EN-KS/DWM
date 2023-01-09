@@ -48,10 +48,10 @@ surf webkit2gtk gcr(these two for surf) sl dash checkbashisms(these two for reli
 sxiv(image viewer)
 
 ```
-# 针对DWM  
-1.dwm-bar  
-2.slock  
-3.dwm patches:  
+# DWM 安装的一些软件  
+···
+dwm-bar  slock  
+dwm patches:  
 (1)dwm-alpha  
 (2)dwm-fuctionalgaps+pertag  
 (3)dwm-hide_vacant_tags  
@@ -60,8 +60,8 @@ sxiv(image viewer)
 (6)st-w3m  
 (7)st-hidecursor  
 (8)st-anysize
-
-安装expac并按日期查询
+···
+# 安装expac并按日期查询
 
 用 expac 查询最近安装的 20 个软件包：
 `expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20`
@@ -92,12 +92,15 @@ https://bbs.archlinux.org/viewtopic.php?id=248843
 Nov.09.2021  
 # DWM Status Bar
 如果你用 xsetroot, 在loop中加入 ```xsetroot -name "$ status | tr '\n' ' '"``` //把newlines 替换成spaces来解决dwm变慢的问题
+
 # Arch Linux
 添加源  
 1./etc/pacman.d/mirrorlist (添加了中国国内源，韩国源因为vpc走韩国)  
 2./etc/pacman.conf （添加了中文社区仓库archlinuxcn） 
+
 #Ranger
 zv: set use_preview_script! (for preview plain text)
+
 # For Bluetooth headphones paired, but no sound after a while
 https://forum.manjaro.org/t/howto-bluetooth-headphones-paired-but-no-sound-after-a-while/33141  
 
