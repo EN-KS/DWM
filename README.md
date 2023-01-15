@@ -235,3 +235,5 @@ luna_pinyin.sogoun.dict.yaml：给fcitx5-rime输入法加入搜狗网络词库
 
 Archlinux in windows subsystem for linux:
 error: https://github.com/DDoSolitary/LxRunOffline/issues/171
+
+Syntax-highlighting very low speed on WSL2 [https://github.com/zdharma-continuum/fast-syntax-highlighting/issues/13#issuecomment-1080320354]
