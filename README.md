@@ -39,7 +39,7 @@ fcitx5-im fcitx5-rime fcitx5-material-color scrot
 
 wqy-zenhei otf-font-awesome 
 
-fish <starship oh-my-fish>(这两个从github下载）wireguard resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
+starship wireguard resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
 
 ntfs-3g(使windows-linux u盘文件格式可以共通https://segmentfault.com/a/1190000016491615 ）
 
