@@ -37,7 +37,7 @@ picom-jonaburg-git xorg-xprop xorg xorg-xinit intel-ucode nitrogen chromium dial
 
 fcitx5-im fcitx5-rime fcitx5-material-color scrot 
 
-wqy-zenhei otf-nerd-fonts-fira-code otf-font-awesome 
+wqy-zenhei otf-font-awesome 
 
 fish <starship oh-my-fish>(这两个从github下载）wireguard resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
 
