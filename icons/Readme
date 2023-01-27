@@ -1,1 +1,2 @@
 network-manager-applet google icons
+`cd` into this `icons` folder then do `cp -r * /usr/share/icons/hicolor/22x22/apps/`
