@@ -68,12 +68,12 @@ static const struct arg args[] = {
     { wifi_essid, " ﯟ %s ",  "wlan0"},
     { netspeed_rx, " ﯲ %sB/s ",  "wlan0"},
     { netspeed_tx, " ﯴ %sB/s ",  "wlan0"},
-    { cpu_perc, " ﬙ %s%% ",     NULL },
-    { ram_perc, "  %s%% ",     NULL },
-    { run_command, " 蓼%4s ",   "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-    { run_command, " ☀%2.2s ",   "xbacklight -get" },
-    { battery_state, " %s ",  "BAT0"},
-	{ battery_perc, "%s%% ",  "BAT0"},
+    { cpu_perc, " 󰻠%s%% ",     NULL },
+    { ram_perc, " 󰍛%s%% ",     NULL },
+    { run_command, " 󱍖%2.2s ",   "light -G" },
+    { run_command, " 󱄠%s ",   "pamixer --get-volume" },
+    { battery_state, " %s",  "BAT0"},
+    { battery_perc, "%s ",  "BAT0"},
 /*	{ battery_remaining, "  ",  "BAT0"},*/
     { datetime, "  %s",        "%a %F %T"},
 /*    { run_command, "  ",       "%2s |" },*/
