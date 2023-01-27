@@ -1,5 +1,5 @@
 Sep.12.2021  
-突然发现有人跟我用一样的laptop 装 arch linux 和 dwm  
+在thinkpad上装 arch linux 和 dwm  
 https://gist.github.com/palopezv/efd34059af6126ad970940bcc6a90f2e  
 
 This is my DWM backup, version init  
