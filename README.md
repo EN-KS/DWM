@@ -27,25 +27,33 @@ pacman -S
 
 tlp iptables-nft ipset clash proxychains-ng
 
-efibootmgr iwd base-devel linux-headers
+efibootmgr base-devel linux-headers
 
 bluez bluez-utils pulseaudio-bluetooth alsa-utils acpi acpi_call 
 
-you-get ranger ueberzug highlight mpv w3m atool poppler zip unzip rar p7zip 
+you-get mpv
 
-picom-jonaburg-git xorg-xprop xorg xorg-xinit intel-ucode nitrogen chromium dialog xf86-video-intel 
+ranger ueberzug highlight w3m atool poppler zip unzip rar p7zip 
 
-fcitx5-im fcitx5-rime fcitx5-material-color scrot 
+picom-jonaburg-git xorg-xprop xorg xorg-xinit nitrogen dialog intel-ucode xf86-video-intel 
+
+fcitx5-im fcitx5-rime fcitx5-material-color 
 
 wqy-zenhei otf-font-awesome 
 
-starship wireguard resolvconf(for wireguard) cmake(for YouCompleteMe) xpdf connman 
+starship 
+
+wireguard resolvconf(for wireguard) 
+
+cmake(for YouCompleteMe) xpdf
 
 ntfs-3g(使windows-linux u盘文件格式可以共通https://segmentfault.com/a/1190000016491615 ）
 
-surf webkit2gtk gcr(these two for surf) sl dash checkbashisms(these two for relink /bin/sh to dash 4 times faster than bash)
+surf webkit2gtk gcr(these two for surf) sl 
 
-sxiv(image viewer)
+dash checkbashisms(these two for relink /bin/sh to dash 4 times faster than bash)
+
+sxiv(image viewer) scrot
 
 ```
 # DWM 安装的一些插件  
@@ -54,15 +62,17 @@ dwm software:
 1.dwm-bar 
 2.slocks
 
-dwm patches:  
-(1)dwm-alpha  
-(2)dwm-fuctionalgaps+pertag  
-(3)dwm-hide_vacant_tags  
-(4)st-alpha  
-(5)st-scrollback  
-(6)st-w3m  
-(7)st-hidecursor  
-(8)st-anysize
+dwm patches:
+(1)dwm-fuctionalgaps+pertag  
+(2)dwm-hide_vacant_tags
+(3)dwm-systray
+
+st patches:
+(1)st-alpha  
+(2)st-scrollback  
+(3)st-w3m  
+(4)st-hidecursor  
+(5)st-anysize
 ```
 # 安装expac并按日期查询
 
