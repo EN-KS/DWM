@@ -32,9 +32,9 @@ lfcd () {
 bind '"\C-o":"lfcd\C-m"'
 
 # autostart X at login
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
-fi
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#  exec startx
+#fi
 
 # bash-completion
 if [ -f /etc/bash_completion ]; then
@@ -42,7 +42,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # QT5 FIX
-export QT_QPA_PLATFORMTHEME="qt5ct"
+#export QT_QPA_PLATFORMTHEME="qt5ct"
 # Wayland Fix
 #export QT_QPA_PLATFORM="wayland;xcb"
 #export XDG_CURRENT_DESKTOP=river
@@ -52,4 +52,4 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 #export MOZ_ENABLE_WAYLAND=1
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-echo 't' | sudo -S systemctl start bluetooth
+#echo 't' | sudo -S systemctl start bluetooth
