@@ -56,18 +56,18 @@
 			char *state;
 			char *symbol;
 		} map[] = {
-			{ "Charging",    "󰂏" },
-			{ "Discharging", "󰂌" },
-			{ "Full",        "󰁹" },
-			{ "Not charging", "󰂎" },
+			{ "Charging",    "󱟦" },
+			{ "Discharging", "󱟤" },
+			{ "Full",        "󱟢" },
+			{ "Not charging", "󱠴" },
 		};
 		size_t i;
 		char path[PATH_MAX], state[12];
 
 		if (esnprintf(path, sizeof(path), POWER_SUPPLY_STATUS, bat) < 0)
-			return "󱟨";
+			return "";
 		if (pscanf(path, "%12[a-zA-Z ]", state) != 1)
-			return "󰂃";
+			return "󰚥";
 
 		for (i = 0; i < LEN(map); i++)
 			if (!strcmp(map[i].state, state))
