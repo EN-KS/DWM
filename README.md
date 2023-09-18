@@ -247,3 +247,15 @@ Archlinux in windows subsystem for linux:
 error: https://github.com/DDoSolitary/LxRunOffline/issues/171
 
 Syntax-highlighting very low speed on WSL2 [https://github.com/zdharma-continuum/fast-syntax-highlighting/issues/13#issuecomment-1080320354]
+
+when you get an error
+```
+npm ERR! code ERR_INVALID_URL
+npm ERR! Invalid URL
+```
+when you installing pyright in neovim via mason, and you use clash at the same time, all you need to do to fix it is that
+```
+npm config set https-proxy http://127.0.0.1:7890
+npm config set proxy http://127.0.0.1:7890
+```
+the port number should be different than the socks5 port
