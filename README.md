@@ -259,3 +259,40 @@ npm config set https-proxy http://127.0.0.1:7890
 npm config set proxy http://127.0.0.1:7890
 ```
 the port number should be different than the socks5 port
+
+
+
+如果你想要在 Clash 中使用命令行工具切换代理节点，你可以使用 Clash 提供的 RESTful API 来实现。以下是步骤和一个例子：
+
+1. **确保 Clash 的 RESTful API 服务正在运行**：
+
+   在你的 `config.yaml` 配置文件中，应该有一个 `external-controller` 的配置，例如：
+
+   ```yaml
+   external-controller: '127.0.0.1:9090'
+   ```
+
+   这表示 Clash 的 RESTful API 服务正在监听 `127.0.0.1` 地址的 `9090` 端口。
+
+2. **使用 `curl` 或其他 HTTP 客户端工具获取当前代理组和代理节点**：
+
+   ```bash
+   curl http://127.0.0.1:9090/proxies
+   ```
+
+   你将看到一个包含所有代理组和代理节点的 JSON 响应。
+
+3. **选择一个节点切换**：
+
+   假设你有一个名为 "Proxy" 的代理组，并且你想切换到这个组内名为 "US_Node" 的节点。你可以这样做：
+
+   ```bash
+   curl -X PUT -d '{"name":"US_Node"}' http://127.0.0.1:9090/proxies/Proxy
+   ```
+
+   这个命令告诉 Clash 切换 "Proxy" 代理组到 "US_Node" 节点。
+
+请注意：
+
+- 这只是一个基本的例子。你的配置可能会有所不同，所以需要根据你实际的代理组和代理节点名称进行调整。
+- 如果你的 Clash 有设置密码（通过 `secret` 字段），你需要在 API 请求中加入相应的认证。
