@@ -25,11 +25,11 @@ paru： `git clone https://aur.archlinux.org/paru.git` ,then `cd paru-bin` `make
 ```
 pacman -S 
 
-tlp iptables-nft ipset clash proxychains-ng
+tlp iptables-nft ipset mihomo(虚空终端) proxychains-ng
 
 efibootmgr base-devel linux-headers
 
-bluez bluez-utils pulseaudio-bluetooth alsa-utils acpi acpi_call 
+bluez bluez-utils pipewire pwvucontrol alsa-utils acpi acpi_call 
 
 you-get mpv
 
@@ -53,13 +53,13 @@ surf webkit2gtk gcr(these two for surf) sl
 
 dash checkbashisms(these two for relink /bin/sh to dash 4 times faster than bash)
 
-sxiv(image viewer) scrot
+sxiv(image viewer) scrot zathura freecad spotify
 
 ```
 # DWM 安装的一些插件  
 ```
 dwm software:
-1.dwm-bar 
+1.slstatus
 2.slocks
 
 dwm patches:
