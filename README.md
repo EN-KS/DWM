@@ -69,7 +69,7 @@ dwm patches:
 4.movestack
 5.vanitygaps
 6.attachbottom
-7.functionalgaps noborder
+7.noborder
 8.scratchpads dynamic scratchpads
 9.warp
 10.cyclewindows
