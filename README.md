@@ -65,7 +65,7 @@ dwm software:
 dwm patches:
 1.alwayscenter
 2.autostart
-3.fixboarders
+3.alpha
 4.movestack
 5.vanitygaps
 6.attachbottom
@@ -78,7 +78,6 @@ dwm patches:
 13.fakefullscreen
 14.hidevacanttags
 15.systray
-16.alpha
 
 
 st patches:
