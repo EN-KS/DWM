@@ -63,9 +63,22 @@ dwm software:
 2.slocks
 
 dwm patches:
-(1)dwm-fuctionalgaps+pertag  
-(2)dwm-hide_vacant_tags
-(3)dwm-systray
+1.alwayscenter
+2.autostart
+3.fixboarders
+4.movestack
+5.vanitygaps
+6.attachbottom
+7.functionalgaps noborder
+8.scratchpads dynamic scratchpads
+9.warp
+10.cyclewindows
+11.colorbar
+12.fix multimon
+13.fakefullscreen
+14.hidevacanttags
+15.systray
+
 
 st patches:
 (1)st-alpha  
