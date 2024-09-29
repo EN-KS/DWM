@@ -78,6 +78,7 @@ dwm patches:
 13.fakefullscreen
 14.hidevacanttags
 15.systray
+16.alpha
 
 
 st patches:
