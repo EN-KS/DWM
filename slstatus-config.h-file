@@ -75,10 +75,10 @@ static const char vol[] =
 static const char mic[] =
     "muted=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'); \
      volume=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2;}'); \
-     if [ \"$muted\" = \"on\" ]; then \
+     if [ \"$muted\" ]; then \
          printf \" \"; \
      elif [ \"$volume\" = \"1.00\" ]; then \
-         printf \" \"; \
+         printf \" \"; \
      else \
          printf \"%.0f \" \"$volume\"; \
      fi";
