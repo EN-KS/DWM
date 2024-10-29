@@ -83,7 +83,7 @@ static const char brightness[] =
      if [ \"$brightness\" = \"100.00\" ]; then \
          printf \"100%%\"; \
      else \
-         printf \"%s\" \"$brightness\"; \
+         printf \"%2.2s%%\" \"$brightness\"; \
      fi";
 
 static const struct arg args[] = {
@@ -93,7 +93,7 @@ static const struct arg args[] = {
     { netspeed_tx, " ﯴ %sB/s ",  "wlan0"},
     { cpu_perc, " 󰻠%s%% ",     NULL },
     { ram_perc, " 󰍛%s%% ",     NULL },
-    { run_command, " 󱍖%2.2s ",   "light -G" },
+    { run_command, " 󱍖%s ",   brightness },
     { run_command,          " %s ",        vol },
     { run_command,          " %s ",        mic },
     { battery_state, " %s",  "BAT0"},
