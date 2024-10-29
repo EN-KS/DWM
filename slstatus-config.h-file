@@ -67,14 +67,14 @@ static const char unknown_str[] = "n/a";
 static const char vol[] = "muted=`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3;}'`; \
                             volume=`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2;}'`; \
                             if [ -z ${muted} ]; then \
-                                printf \" ${volume} \"; \
+                                printf \"${volume} \"; \
                             else printf \" \"; \
                             fi";
 
 static const char mic[] = "muted=`wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'`; \
                             volume=`wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2;}'`; \
                             if [ -z ${muted} ]; then \
-                                printf \" ${volume} \"; \
+                                printf \"${volume} \"; \
                             else printf \" \"; \
                             fi";
 
