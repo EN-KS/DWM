@@ -78,14 +78,6 @@ static const char mic[] = "muted=`wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk 
                             else printf \"Off\"; \
                             fi";
 
-static const char brightness[] = 
-    "brightness=`light -G`; \
-     if [ \"$brightness\" = \"100.00\" ]; then \
-         printf \"100%%\"; \
-     else \
-         printf \"%2.2s%%\" \"$brightness\"; \
-     fi";
-
 static const char brightness[] =
     "brightness=$(light -G | sed 's/\\(.*\\)\\.00/\\1/' | grep -v 100);" \
     "printf \"%s\" \"$brightness\";";
@@ -97,7 +89,7 @@ static const struct arg args[] = {
     { netspeed_tx, " ﯴ %sB/s ",  "wlan0"},
     { cpu_perc, " 󰻠%s%% ",     NULL },
     { ram_perc, " 󰍛%s%% ",     NULL },
-    { run_command, " 󱍖%s ",   brightness },
+    { run_command, " 󱍖%s%% ",   brightness },
     { run_command,          " %s ",        vol },
     { run_command,          " %s ",        mic },
     { battery_state, " %s",  "BAT0"},
