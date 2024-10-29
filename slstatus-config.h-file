@@ -78,6 +78,14 @@ static const char mic[] = "muted=`wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk 
                             else printf \"Off\"; \
                             fi";
 
+static const char brightness[] = 
+    "brightness=`light -G`; \
+     if [ \"$brightness\" = \"100.00\" ]; then \
+         printf \"100%%\"; \
+     else \
+         printf \"%s\" \"$brightness\"; \
+     fi";
+
 static const struct arg args[] = {
 	/* function format          argument */
     { wifi_essid, " ﯟ %s ",  "wlan0"},
