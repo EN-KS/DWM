@@ -72,6 +72,17 @@ static const char vol[] =
                             else printf \" \"; \
                             fi";
 
+static const char mic[] =
+    "muted=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'); \
+     volume=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2;}'); \
+     if [ \"$muted\" = \"on\" ]; then \
+         printf \" \"; \
+     elif [ \"$volume\" = \"1.00\" ]; then \
+         printf \" \"; \
+     else \
+         printf \"%.0f \" \"$volume\"; \
+     fi";
+
 static const char mic[] = "muted=`wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'`; \
                             volume=`wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2;}'`; \
                             if [ -z ${muted} ]; then \
