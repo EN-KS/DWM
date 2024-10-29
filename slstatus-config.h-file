@@ -67,8 +67,8 @@ static const char unknown_str[] = "n/a";
 static const char vol[] = "muted=`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3;}'`; \
                             volume=`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2;}'`; \
                             if [ -z ${muted} ]; then \
-                                printf \"${volume}\"; \
-                            else printf \"Off\"; \
+                                printf \" ${volume}\"; \
+                            else printf \" \"; \
                             fi";
 
 static const char mic[] = "muted=`wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'`; \
@@ -90,7 +90,7 @@ static const struct arg args[] = {
     { cpu_perc, " 󰻠%s%% ",     NULL },
     { ram_perc, " 󰍛%s%% ",     NULL },
     { run_command, " 󱍖%s%% ",   brightness },
-    { run_command,          " %s ",        vol },
+    { run_command,          "%s ",        vol },
     { run_command,          " %s ",        mic },
     { battery_state, " %s",  "BAT0"},
     { battery_perc, "%s ",  "BAT0"},
