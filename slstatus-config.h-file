@@ -65,12 +65,19 @@ static const char unknown_str[] = "n/a";
  */
 
 static const char vol[] =
-    "muted=`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3;}'`; \
-     volume=`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2;}'`; \
-                            if [ -z ${muted} ]; then \
-                                printf \"%d \" \"$(echo \"$volume\" | awk '{print $1 * 100}' | cut -d. -f1)\"; \
-                            else printf \" \"; \
-                            fi";
+    "muted=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3;}'); \
+     volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2;}' | awk '{print $1 * 100}' | cut -d. -f1); \
+     if [ -z \"${muted}\" ]; then \
+         if [ \"$volume\" -le 30 ]; then \
+         printf \"%d \" \"$(echo \"$volume\" )\"; \
+         elif [ \"$volume\" -le 60 ]; then \
+         printf \"%d \" \"$(echo \"$volume\" )\"; \
+         elif [ \"$volume\" -le 100 ]; then \
+         printf \"%d \" \"$(echo \"$volume\" )\"; \
+         fi; \
+     else \
+         printf \"\"; \
+     fi";
 
 static const char mic[] =
     "muted=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'); \
