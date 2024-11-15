@@ -311,4 +311,17 @@ the port number should be different than the socks5 port
 - 如果你的 Clash 有设置密码（通过 `secret` 字段），你需要在 API 请求中加入相应的认证。
 
 Switch to a virtual console with a text terminal with ctrl-alt-f2
+
 Switch back to your graphical environment with a key combination somewhere between Ctrl-Alt-F1 and Ctrl-Alt-F7
+
+当使用终端时,你可以使用热键输出特殊字符。然而我们还可以输出一系列字符和一些转义字符。如果我们输出一系列字符组成命令，之后转义字符换一个新行，这个命令将被执行。
+
+编辑键盘映射文件可以实现上述方法。但是，由于更新系统原因键盘映射文件会被重写，不鼓励编辑上述键盘映射文件。一个更好的解决方案是整合现存的键盘映射文件和个人设置的键盘映射文件，loadkeys 命令工具可以做到这一点。
+
+首先，创建一个键盘映射文件，这个键盘映射文件可以存放在任何地方，但是推荐的方法是在/usr/local: create里面模拟目录结构：创建/usr/usr/local/share/kbd/keymaps目录，编辑edit /usr/local/share/kbd/keymaps/personal.map文件。
+
+PS：值得注意的是，这样的个人键盘映射文件对于重新定义已经是默认的键盘映射的按键行为也非常有用:当使用loadkeys 指令时，默认的键盘映射和新的指令相冲突时，默认键盘映射被取代，反之则保留。这种方法仅仅会改变在个人键盘映射里面必须被改变的键盘映射。
+
+提示：
+你也可以编辑一个现存的键盘映射，它在/usr/share/kbd/keymaps/ 目录里面。键盘映射文件的扩展名是.map.gz，比如 us.map.gz 是美国键盘映射。复制这个键盘映射到 /usr/local/share/kbd/keymaps/personal.map.gz 并且使用gunzip解压缩之。
+通过设置 /etc/vconsole.conf 文件自定义的个人键盘映射可以持久化。鉴于此，如果你在mkinitcpio hook中使用的sd-vconsole 来代替 keymap，你应该把你的自定义键盘映射文件放入/usr/share/kbd/keymaps/中。这种方法它的来自 /usr/share/kbd/keymaps的依赖关系会被钩子自动的加载到初始内存镜像中去。另一方面，如果你把自定义的键盘映射放在了 /usr/local/ 下，它的依赖需要在 mkinitcpio.conf 文件中 FILES 行手工明确加载。
