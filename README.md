@@ -309,3 +309,6 @@ the port number should be different than the socks5 port
 
 - 这只是一个基本的例子。你的配置可能会有所不同，所以需要根据你实际的代理组和代理节点名称进行调整。
 - 如果你的 Clash 有设置密码（通过 `secret` 字段），你需要在 API 请求中加入相应的认证。
+
+Switch to a virtual console with a text terminal with ctrl-alt-f2
+Switch back to your graphical environment with a key combination somewhere between Ctrl-Alt-F1 and Ctrl-Alt-F7
