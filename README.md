@@ -325,3 +325,13 @@ PS：值得注意的是，这样的个人键盘映射文件对于重新定义已
 提示：
 你也可以编辑一个现存的键盘映射，它在/usr/share/kbd/keymaps/ 目录里面。键盘映射文件的扩展名是.map.gz，比如 us.map.gz 是美国键盘映射。复制这个键盘映射到 /usr/local/share/kbd/keymaps/personal.map.gz 并且使用gunzip解压缩之。
 通过设置 /etc/vconsole.conf 文件自定义的个人键盘映射可以持久化。鉴于此，如果你在mkinitcpio hook中使用的sd-vconsole 来代替 keymap，你应该把你的自定义键盘映射文件放入/usr/share/kbd/keymaps/中。这种方法它的来自 /usr/share/kbd/keymaps的依赖关系会被钩子自动的加载到初始内存镜像中去。另一方面，如果你把自定义的键盘映射放在了 /usr/local/ 下，它的依赖需要在 mkinitcpio.conf 文件中 FILES 行手工明确加载。
+
+
+X220的静音灯不亮或不正常有可能是因为pipewire的默认card不是Analog Stereo Duplex
+解决办法：
+Wireplumber/pipewire "remembers" your profile selection (i.e. at some point you likely incidentally selected the no mic profile) but switches that based on some events (like "replugging" a microphone, which is simulated by the udevadm trigger) do an explicit
+
+pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo
+to tell wireplumber that this is your default profile preference
+
+Should that not stick after a reboot/restart of pipwire, then potentially your wireplumber state is corrupt, in which case you can remove/move ~/.local/state/wireplumber to reset the cache and then run above command to make it stick.
