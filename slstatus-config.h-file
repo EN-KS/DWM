@@ -131,6 +131,6 @@ static const struct arg args[] = {
     {get_wifi_icon_based_on_perc, "%s", "wlp3s0"},
     {wifi_perc, "%s%%", "wlp3s0"},
     {wifi_essid, "%s", "wlp3s0"},
-    { datetime, " 󰃰 %s",        "%a %F %T"},
+    { datetime, " 󰃰 %s",        "%c"},
 /*    { run_command, "  ",       "%2s |" },*/
 };
