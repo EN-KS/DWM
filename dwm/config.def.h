@@ -13,8 +13,8 @@ static const unsigned int gappx[] = {1};
 static const unsigned int snap = 32; /* snap pixel */
 static const int showbar = 1;        /* 0 means no bar */
 static const int topbar = 1;         /* 0 means bottom bar */
-static const char *fonts[] = {"FiraCode Nerd Font Mono:size=16"};
-static const char dmenufont[] = "FiraCode Nerd Font Mono:size=10";
+static const char *fonts[] = {"Sarasa Term SC Nerd:size=16"};
+static const char dmenufont[] = "Sarasa Term SC Nerd:size=10";
 static const char col_gray1[] = "#100D23";
 static const char col_gray2[] = "#9E9E61";
 static const char col_gray3[] = "#9E619E";
