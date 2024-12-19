@@ -1,6 +1,12 @@
 Sep.12.2021  
 在thinkpad上装 arch linux 和 dwm  
-这里记载了一些可能与到的问题与解决办法
+
+
+这个Readme里记载了一些可能遇到的问题与解决办法
+
+-------------------------------------------------------------------------------
+
+
 https://gist.github.com/palopezv/efd34059af6126ad970940bcc6a90f2e  
 
 This is my DWM backup, version init  
