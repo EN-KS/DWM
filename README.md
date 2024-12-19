@@ -375,3 +375,4 @@ Comment[zh_CN]=微信桌面版
 ------------------------------------------------
 
 archlinux rime输入法有些字体无法显示：安装 `paru -S adobe-source-han-sans-cn-fonts noto-fonts-emoji`就解决了。
+dwm状态栏中文显示不出来就用 nerd-fonts-sarasa-term 字体
