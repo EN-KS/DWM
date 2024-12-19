@@ -258,10 +258,14 @@ https://bbs.archlinux.org/viewtopic.php?id=267207
      > 系统分区时用ssd给机械硬盘加速技术lvmcache 
      > https://www.lovelycxy.com/h/en0KJQB8c1Q.html
      > https://www.cnblogs.com/jfLin/p/9542812.html
-     
+
+-------------------------------------------------------------------------
+
 luna_pinyin.sogou.dict.yaml：给fcitx5-rime输入法加入搜狗标准词库
 
 luna_pinyin.sogoun.dict.yaml：给fcitx5-rime输入法加入搜狗网络词库
+
+----------------------------------------------------------------------------
 
 Archlinux in windows subsystem for linux:
 error: https://github.com/DDoSolitary/LxRunOffline/issues/171
@@ -280,7 +284,7 @@ npm config set proxy http://127.0.0.1:7890
 ```
 the port number should be different than the socks5 port
 
-
+--------------------------------------------------------------------------
 
 如果你想要在 Clash 中使用命令行工具切换代理节点，你可以使用 Clash 提供的 RESTful API 来实现。以下是步骤和一个例子：
 
@@ -317,9 +321,13 @@ the port number should be different than the socks5 port
 - 这只是一个基本的例子。你的配置可能会有所不同，所以需要根据你实际的代理组和代理节点名称进行调整。
 - 如果你的 Clash 有设置密码（通过 `secret` 字段），你需要在 API 请求中加入相应的认证。
 
+-----------------------------------------------------------------------------------------
+
 Switch to a virtual console with a text terminal with ctrl-alt-f2
 
 Switch back to your graphical environment with a key combination somewhere between Ctrl-Alt-F1 and Ctrl-Alt-F7
+
+-----------------------------------------------------------------------------------------
 
 当使用终端时,你可以使用热键输出特殊字符。然而我们还可以输出一系列字符和一些转义字符。如果我们输出一系列字符组成命令，之后转义字符换一个新行，这个命令将被执行。
 
@@ -333,6 +341,7 @@ PS：值得注意的是，这样的个人键盘映射文件对于重新定义已
 你也可以编辑一个现存的键盘映射，它在/usr/share/kbd/keymaps/ 目录里面。键盘映射文件的扩展名是.map.gz，比如 us.map.gz 是美国键盘映射。复制这个键盘映射到 /usr/local/share/kbd/keymaps/personal.map.gz 并且使用gunzip解压缩之。
 通过设置 /etc/vconsole.conf 文件自定义的个人键盘映射可以持久化。鉴于此，如果你在mkinitcpio hook中使用的sd-vconsole 来代替 keymap，你应该把你的自定义键盘映射文件放入/usr/share/kbd/keymaps/中。这种方法它的来自 /usr/share/kbd/keymaps的依赖关系会被钩子自动的加载到初始内存镜像中去。另一方面，如果你把自定义的键盘映射放在了 /usr/local/ 下，它的依赖需要在 mkinitcpio.conf 文件中 FILES 行手工明确加载。
 
+-------------------------------------------------------------------------------
 
 X220的静音灯不亮或不正常有可能是因为pipewire的默认card不是Analog Stereo Duplex
 解决办法：
