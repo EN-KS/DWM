@@ -351,3 +351,25 @@ pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:ana
 to tell wireplumber that this is your default profile preference
 
 Should that not stick after a reboot/restart of pipwire, then potentially your wireplumber state is corrupt, in which case you can remove/move ~/.local/state/wireplumber to reset the cache and then run above command to make it stick.
+
+-----------------------------------------------
+
+微信安装包名：wechat-bin
+
+
+想要启动微信时正确加载fcitx5中文输入法，需要在 `.local/share/applications/wechat.desktop文件中写下如下代码
+```
+[Desktop Entry]
+Name=wechat
+Name[zh_CN]=微信
+Exec=env QT_IM_MODULE=fcitx QT_AUTO_SCREEN_SCALE_FACTOR=1 'QT_QPA_PLATFORM=wayland;xcb' /usr/bin/wechat %U
+StartupNotify=true
+Terminal=false
+Icon=wechat
+Type=Application
+Categories=Network;InstantMessaging;Chat;
+Comment=Wechat Desktop
+Comment[zh_CN]=微信桌面版
+```
+
+------------------------------------------------
