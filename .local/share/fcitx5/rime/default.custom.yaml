@@ -1,3 +1,4 @@
+# Archlinux需要下载 rime-ice-git
 patch:
   # 引用「雾凇拼音」配置: /usr/share/rime-data/rime_ice_suggestion.yaml
   __include: rime_ice_suggestion:/
