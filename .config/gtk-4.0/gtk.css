@@ -1,0 +1,19 @@
+popover * {
+  box-shadow: none;
+  border-style: hidden;
+  margin: 0px;
+  border-radius: 0px;
+}
+
+.window-frame {
+    box-shadow: none;
+    margin: 0px;
+}
+.suggestions {
+  padding-top: 0px;
+}
+.background {
+    margin: 0px;
+    padding: 0px;
+    box-shadow: none;
+}
