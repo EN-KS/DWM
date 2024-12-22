@@ -26,7 +26,8 @@ xmodmap -pke > ~/.Xmodmap
 4. 修改 ~/.xinitrc 顶部加入 (sleep 15s && xmodmap ~/.Xmodmap) & 来延迟命令防止被其他命令覆盖  
 
 # Archliunx 按需要安装的软件  
-vim (--with x compiled from source)  
+neovim
+
 paru： `git clone https://aur.archlinux.org/paru.git` ,then `cd paru-bin` `makepkg -si`
 
 ```
@@ -42,15 +43,13 @@ you-get mpv
 
 ranger ueberzug highlight w3m atool poppler zip unzip rar p7zip 
 
-picom-jonaburg-git xorg-xprop xorg xorg-xinit nitrogen dialog intel-ucode xf86-video-intel 
+picom xorg-xprop xorg xorg-xinit nitrogen dialog intel-ucode xf86-video-intel 
 
 fcitx5-im fcitx5-rime fcitx5-material-color 
 
-wqy-zenhei otf-font-awesome 
+nerd-fonts-sarasa-term adobe-source-han-sans-cn-fonts noto-fonts-emoji
 
 starship 
-
-wireguard resolvconf(for wireguard) 
 
 cmake(for YouCompleteMe) xpdf
 
@@ -60,7 +59,7 @@ surf webkit2gtk gcr(these two for surf) sl
 
 dash checkbashisms(these two for relink /bin/sh to dash 4 times faster than bash)
 
-sxiv(image viewer) scrot zathura freecad spotify
+sxiv(image viewer) scrot zathura freecad
 
 ```
 # DWM 安装的一些插件  
@@ -70,21 +69,11 @@ dwm software:
 2.slocks
 
 dwm patches:
-1.alwayscenter
-2.autostart
-3.alpha
-4.movestack
-5.vanitygaps
-6.attachbottom
-7.noborder
-8.scratchpads dynamic scratchpads
-9.warp
-10.cyclewindows
-11.colorbar
-12.fix multimon
-13.fakefullscreen
-14.hidevacanttags
-15.systray
+1. alpha
+2. funtionalgaps
+3. hidevacanttags
+4. noborder
+5. decorhints (有些软件如pwvucontrol会生成奇怪的边框，需要加上修改picom和gtk.css来解决)
 
 
 st patches:
@@ -376,3 +365,9 @@ Comment[zh_CN]=微信桌面版
 
 archlinux rime输入法有些字体无法显示：安装 `paru -S adobe-source-han-sans-cn-fonts noto-fonts-emoji`就解决了。
 dwm状态栏中文显示不出来就用 nerd-fonts-sarasa-term 字体
+
+-------------------------------
+
+pwvucontrol 的一些基于gtk的不同type的窗口会被绘制过宽的边框，以及picom的毛玻璃特效错误的显示在边框和窗口间。 已经在 gtk.css和 picom 以及dwm的 patch: decorhints里边解决，但是基于qt的边框问题没有解决
+
+----------------------------------
