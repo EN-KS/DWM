@@ -74,6 +74,7 @@ dwm patches:
 3. hidevacanttags
 4. noborder
 5. decorhints (有些软件如pwvucontrol会生成奇怪的边框，需要加上修改picom和gtk.css来解决)
+6. alpha-systray-6.3full
 
 
 st patches:
