@@ -91,11 +91,12 @@ static const char *dmenucmd[] = {
     "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
 static const char *termcmd[] = {"kitty", NULL};
 static const char *chromium[] = {"chromium", NULL};
-static const char *screenshot_cmd[] = {
+static const char *screenshotcut_cmd[] = {
     "sh", "-c",
     "hacksaw -f \"-i %i -g %g\" && shotgun $selection - | xclip -t 'image/png' "
     "-selection clipboard",
     NULL};
+static const char *screenshot_cmd[] = {"shotgun", "-s", NULL};
 static const char *brightnessup[] = {
     "light", "-A", "5",
     NULL}; /* Fn + Home（此组合有唯一Keycode） 是Thinkpad x220的增加亮度 */
@@ -119,6 +120,7 @@ static const Key keys[] = {
     {0, XF86XK_AudioMute, spawn, {.v = volmute}},
     {0, XF86XK_AudioMicMute, spawn, {.v = mutemic}},
     {0, XK_Print, spawn, {.v = screenshot_cmd}},
+    {MODKEY | ShiftMask, XK_a, spawn, {.v = screenshotcut_cmd}},
     {0,
      XF86XK_MonBrightnessUp,
      spawn,
