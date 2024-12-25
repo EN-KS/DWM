@@ -59,7 +59,7 @@ surf webkit2gtk gcr(these two for surf) sl
 
 dash checkbashisms(these two for relink /bin/sh to dash 4 times faster than bash)
 
-sxiv(image viewer) scrot zathura freecad
+sxiv(image viewer) shotgun hacksaw(these two for screenshot) zathura freecad
 
 ```
 # DWM 安装的一些插件  
