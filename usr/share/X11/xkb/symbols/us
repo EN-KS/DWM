@@ -52,6 +52,8 @@ xkb_symbols "basic" {
     key <AB08> {	[     x,	X		]	};
     key <AB09> {	[     k,	K		]	};
     key <AB10> {	[     y,	Y	]	};
+    key <CAPS> { [ Control_L ], type[group1] = "ONE_LEVEL" };
+    key <LCTL> { [ Caps_Lock ] };
 
     key <BKSL> {	[ backslash,         bar	]	};
 };
