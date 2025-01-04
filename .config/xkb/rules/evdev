@@ -1,0 +1,4 @@
+! option  = symbols
+  halmak:hmk  = +halmak(hmk)
+
+! include %S/evdev
