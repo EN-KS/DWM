@@ -1,6 +1,8 @@
 Sep.12.2021  
 在thinkpad上装 arch linux 和 dwm  
 
+archlinux安装完成后设置neovim为系统默认编辑器不然git等场景下终端调用编辑器会失效，在`/etc/profile.d/editor.sh` 中写入 `export EDITOR='neovim'`然后`chmod a+x editor.sh` ， 因为 `/etc/profile`会source`profile.d`中的文件
+
 
 这个Readme里记载了一些可能遇到的问题与解决办法
 
