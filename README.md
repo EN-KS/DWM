@@ -172,7 +172,6 @@ sudo mkfs.ntfs -Q -L labelname /dev/设备名称
 
 > .xpdfrc 为 xpdf的个人配置文件
 
-> picom.conf is config file for picom-jonaburg-git
 
 
 # 科学上网：
