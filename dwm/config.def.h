@@ -40,7 +40,9 @@ static const unsigned int alphas[][3] = {
     [SchemeSel] = {OPAQUE, baralpha, borderalpha},
 };
 /* tagging */
-static const char *tags[] = {"☰", "☱", "☲", "☳", "☴", "☵", "☶", "☷", ""};
+static const char *tags[] = {
+    "☰", "☱", "☲", "☳", "☴", "☵", "☶", "☷", "", "󰘑",
+};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -51,6 +53,8 @@ static const Rule rules[] = {
     {"Gimp", NULL, NULL, 0, 1, -1},
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
     {"Chromium", NULL, NULL, 1 << 8, 0, -1},
+    {NULL, "wechat", NULL, 1 << 9, 0, -1},
+    {NULL, NULL, "wechat", TAGMASK, 0, -1},
 };
 
 /* layout(s) */
@@ -89,7 +93,7 @@ static char dmenumon[2] =
 static const char *dmenucmd[] = {
     "dmenu_run", "-m",      dmenumon, "-fn",    dmenufont, "-nb",     col_gray1,
     "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
-static const char *termcmd[] = {"kitty", NULL};
+static const char *termcmd[] = {"ghostty", NULL};
 static const char *chromium[] = {"chromium", NULL};
 static const char *screenshotcut_cmd[] = {
     "sh", "-c",
@@ -98,16 +102,16 @@ static const char *screenshotcut_cmd[] = {
     NULL};
 static const char *screenshot_cmd[] = {"shotgun", "-s", NULL};
 static const char *brightnessup[] = {
-    "light", "-A", "5",
+    "brightnessctl", "set", "5%%+",
     NULL}; /* Fn + Home（此组合有唯一Keycode） 是Thinkpad x220的增加亮度 */
 static const char *brightnessdown[] = {
-    "light", "-U", "5",
+    "brightnessctl", "set", "5%%-",
     NULL}; /* Fn + End（此组合有唯一Keycode） 是Thinkpad x220的降低亮度 */
 static const char *rofi[] = {"rofi", "-show", "drun", NULL};
 static const char *powermenu[] = {"./.config/rofi/leave/powermenu.sh", NULL};
 static const char *wifi_menu[] = {"./.config/rofi/wifi_menu/rofi_wifi_menu.sh",
                                   NULL};
-static const char *htop[] = {"kitty", "htop", NULL};
+static const char *htop[] = {"ghostty", "htop", NULL};
 static const Key keys[] = {
     /* modifier                     key        function        argument */
     {0,
@@ -131,20 +135,20 @@ static const Key keys[] = {
      {.v = brightnessdown}}, /* 系统默认降低亮度的KeySym*/
     {MODKEY | ShiftMask, XK_e, spawn, {.v = powermenu}},
     {MODKEY | ShiftMask, XK_n, spawn, {.v = wifi_menu}},
-    {MODKEY | ShiftMask, XK_t, spawn, {.v = htop}},
-    {MODKEY, XK_p, spawn, {.v = rofi}},
-    {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
-    {MODKEY, XK_b, togglebar, {0}},
-    {MODKEY, XK_j, focusstack, {.i = +1}},
-    {MODKEY, XK_k, focusstack, {.i = -1}},
+    {MODKEY | ShiftMask, XK_h, spawn, {.v = htop}},
+    {MODKEY, XK_e, spawn, {.v = rofi}},
+    {MODKEY, XK_t, spawn, {.v = termcmd}},
+    {MODKEY | ShiftMask, XK_b, togglebar, {0}},
+    {MODKEY, XK_n, focusstack, {.i = +1}},
+    {MODKEY, XK_p, focusstack, {.i = -1}},
     {MODKEY, XK_i, incnmaster, {.i = +1}},
     {MODKEY, XK_d, incnmaster, {.i = -1}},
     {MODKEY, XK_h, setmfact, {.f = -0.05}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY, XK_Return, zoom, {0}},
     {MODKEY, XK_Tab, view, {0}},
-    {MODKEY | ShiftMask, XK_q, killclient, {0}},
-    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
+    {MODKEY, XK_q, killclient, {0}},
+    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[0]}},
     {MODKEY, XK_f, setlayout, {.v = &layouts[1]}},
     {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
     {MODKEY, XK_space, setlayout, {0}},
@@ -153,11 +157,11 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_comma, focusmon, {.i = -1}},
     {MODKEY, XK_period, focusmon, {.i = +1}},
-    {MODKEY | ShiftMask, XK_comma, tagmon, {.i = -1}},
-    {MODKEY | ShiftMask, XK_period, tagmon, {.i = +1}},
+    {MODKEY | ShiftMask, XK_k, tagmon, {.i = -1}},
+    {MODKEY | ShiftMask, XK_j, tagmon, {.i = +1}},
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
-            TAGKEYS(XK_9, 8){MODKEY | ShiftMask, XK_c, quit, {0}},
+            TAGKEYS(XK_9, 8){MODKEY | ShiftMask, XK_q, quit, {0}},
 };
 
 /* button definitions */
