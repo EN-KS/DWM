@@ -112,8 +112,7 @@ static const char mic[] =
      fi";
 
 static const char brightness[] =
-    "brightness=$(light -G | sed 's/\\(.*\\)\\.00/\\1/' | grep -v 100);" \
-    "printf \"%s\" \"$brightness\";";
+    "brightnessctl g | awk '{print int($1 * 100 / 3000)}' | tr -d '\\n'";
 
 static const struct arg args[] = {
 	/* function format          argument */
