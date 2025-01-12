@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
@@ -14,16 +18,17 @@ static const char unknown_str[] = "n/a";
  *
  * battery_perc        battery percentage              battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
- * battery_state       battery charging state          battery name (BAT0)
- *                                                     NULL on OpenBSD/FreeBSD
  * battery_remaining   battery remaining HH:MM         battery name (BAT0)
  *                                                     NULL on OpenBSD/FreeBSD
- * cpu_perc            cpu usage in percent            NULL
+ * battery_state       battery charging state          battery name (BAT0)
+ *                                                     NULL on OpenBSD/FreeBSD
+ * cat                 read arbitrary file             path
  * cpu_freq            cpu frequency in MHz            NULL
+ * cpu_perc            cpu usage in percent            NULL
  * datetime            date and time                   format string (%F %T)
  * disk_free           free disk space in GB           mountpoint path (/)
  * disk_perc           disk usage in percent           mountpoint path (/)
- * disk_total          total disk space in GB          mountpoint path (/")
+ * disk_total          total disk space in GB          mountpoint path (/)
  * disk_used           used disk space in GB           mountpoint path (/)
  * entropy             available entropy               NULL
  * gid                 GID of current user             NULL
@@ -45,7 +50,6 @@ static const char unknown_str[] = "n/a";
  * ram_total           total memory size in GB         NULL
  * ram_used            used memory in GB               NULL
  * run_command         custom shell command            command (echo foo)
- * separator           string to echo                  NULL
  * swap_free           free swap in GB                 NULL
  * swap_perc           swap usage in percent           NULL
  * swap_total          total swap size in GB           NULL
@@ -59,11 +63,58 @@ static const char unknown_str[] = "n/a";
  * uptime              system uptime                   NULL
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
- *                                                     NULL on OpenBSD
- * wifi_perc           WiFi signal in percent          interface name (wlan0)
+ *                                                     NULL on OpenBSD/FreeBSD
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
+ * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 
+// 获取无线网卡名称的函数
+static char wireless_interface[32] = "n/a"; // 全局变量，存储无线网卡名称
+
+const char *get_wireless_interface(void) {
+  FILE *fp;
+  char line[256];
+
+  // 打开/proc/net/wireless文件
+  fp = fopen("/proc/net/wireless", "r");
+  if (fp == NULL) {
+    perror("Error opening file");
+    return unknown_str; // 返回未知值
+  }
+
+  // 跳过前两行
+  fgets(line, sizeof(line), fp);
+  fgets(line, sizeof(line), fp);
+  // 读取第三行，获取无线网卡名称
+  if (fgets(line, sizeof(line), fp) != NULL) {
+    // 提取无线网卡名称，去除前面的空格
+    if (sscanf(line, " %[^:]", wireless_interface) != 1) {
+      fprintf(stderr, "Error parsing interface name from line: %s", line);
+      strcpy(wireless_interface, unknown_str);
+    } else {
+      // 去除字符串末尾的空格
+      size_t len = strlen(wireless_interface);
+      while (len > 0 && (wireless_interface[len - 1] == ' ' ||
+                         wireless_interface[len - 1] == '\n')) {
+        wireless_interface[len - 1] = '\0';
+        len--;
+      }
+    }
+  } else {
+    fprintf(stderr, "Error reading third line\n");
+    strcpy(wireless_interface, unknown_str);
+  }
+
+  fclose(fp);
+  return wireless_interface;
+}
+
+// 构造函数，确保在 main 函数执行前调用
+static void __attribute__((constructor)) init_wireless_interface(void) {
+  get_wireless_interface();
+}
+
+// use wifi_perc to show signal icons
 static inline const char *get_wifi_icon_based_on_perc(const char *interface) {
   const char *perc_str = wifi_perc(interface);
   if (perc_str == NULL || perc_str[0] == '\0') {
@@ -85,6 +136,7 @@ static inline const char *get_wifi_icon_based_on_perc(const char *interface) {
   return icon;
 }
 
+// show corresponding volume icons
 static const char vol[] =
     "muted=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3;}'); \
      volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2;}' | awk '{print $1 * 100}' | cut -d. -f1); \
@@ -100,6 +152,7 @@ static const char vol[] =
          printf \"\"; \
      fi";
 
+// show mic icons
 static const char mic[] =
     "muted=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'); \
      volume=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2;}'); \
@@ -115,21 +168,15 @@ static const char brightness[] =
     "brightnessctl g | awk '{print int($1 * 100 / 3000)}' | tr -d '\\n'";
 
 static const struct arg args[] = {
-	/* function format          argument */
-    { wifi_essid, " ﯟ %s ",  "wlan0"},
-    { netspeed_rx, " ﯲ %sB/s ",  "wlan0"},
-    { netspeed_tx, " ﯴ %sB/s ",  "wlan0"},
-    { cpu_perc, " 󰍛%s ",     NULL },
-    { ram_perc, " %s ",     NULL },
-    { run_command, " 󱍖%s ",   brightness },
-    { run_command,          " %s",        vol },
-    { run_command,          " %s",        mic },
-    { battery_state, " %s",  "BAT0"},
-    { battery_perc, "%s ",  "BAT0"},
-/*	{ battery_remaining, "  ",  "BAT0"},*/
-    {get_wifi_icon_based_on_perc, "%s", "wlp3s0"},
-    {wifi_perc, "%s%%", "wlp3s0"},
-    {wifi_essid, "%s", "wlp3s0"},
-    { datetime, " 󰃰 %s",        "%c"},
-/*    { run_command, "  ",       "%2s |" },*/
+    /* function format          argument */
+    {cpu_perc, " 󰍛 %s ", NULL},
+    {ram_perc, "  %s ", NULL},
+    {run_command, " 󱍖%s ", brightness},
+    {run_command, " %s", vol},
+    {run_command, " %s", mic},
+    {battery_state, " %s", "BAT0"},
+    {battery_perc, "%s ", "BAT0"},
+    {get_wifi_icon_based_on_perc, "%s", wireless_interface},
+    //{wifi_perc, "%s", wireless_interface},
+    {datetime, " %s", "%c"},
 };
