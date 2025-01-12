@@ -164,16 +164,42 @@ static const char mic[] =
          printf \"%.0f \" \"$volume\"; \
      fi";
 
-static const char brightness[] =
-    "brightnessctl g | awk '{print int($1 * 100 / 3000)}' | tr -d '\\n'";
+static const char *icons[] = {"󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒",
+                              "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"};
+static const char *error_icon = "󱧤"; // 定义一个默认图标表示错误或未知状态
+
+static const char *get_brightness_icon() {
+  FILE *pipe = popen(
+      "brightnessctl g | awk '{print int($1 * 100 / 3000)}' | tr -d '\\n'",
+      "r");
+  if (!pipe) {
+    perror("popen");
+    return error_icon;
+  }
+
+  char buffer[128];
+  if (fgets(buffer, sizeof(buffer), pipe) != NULL) {
+    int brightness = atoi(buffer);
+    pclose(pipe);
+    if (brightness < 0)
+      brightness = 0;
+    if (brightness > 100)
+      brightness = 100;
+    int icon_index = brightness / 10;
+    return icons[icon_index];
+  }
+
+  pclose(pipe);
+  return error_icon;
+}
 
 static const struct arg args[] = {
     /* function format          argument */
     {cpu_perc, " 󰍛 %s ", NULL},
     {ram_perc, "  %s ", NULL},
-    {run_command, " 󱍖%s ", brightness},
     {run_command, " %s", vol},
     {run_command, " %s", mic},
+    {get_brightness_icon, " %s ", NULL}, // 使用 get_brightness_icon 函数
     {battery_state, " %s", "BAT0"},
     {battery_perc, "%s ", "BAT0"},
     {get_wifi_icon_based_on_perc, "%s", wireless_interface},
