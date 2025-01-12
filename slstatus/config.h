@@ -262,8 +262,8 @@ static const struct arg args[] = {
     {run_command, " %s", mic},
     {run_command, "%s", vol},
     {get_brightness_icon, " %s", NULL}, // 使用 get_brightness_icon 函数
-    {get_battery_icon_based_on_perc_and_state, " %s", "BAT0"},
     {get_wifi_icon_based_on_perc, " %s", wireless_interface},
+    {get_battery_icon_based_on_perc_and_state, " %s", "BAT0"},
     //{wifi_perc, "%s", wireless_interface},
     {datetime, " %s", "%a %b %d %H:%M"},
 };
