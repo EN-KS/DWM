@@ -68,7 +68,7 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 
-// 获取无线网卡名称的函数
+// Show wifi icons
 static char wireless_interface[32] = "n/a"; // 全局变量，存储无线网卡名称
 
 const char *get_wireless_interface(void) {
@@ -114,7 +114,7 @@ static void __attribute__((constructor)) init_wireless_interface(void) {
   get_wireless_interface();
 }
 
-// use wifi_perc to show signal icons
+// Show signal icons
 static inline const char *get_wifi_icon_based_on_perc(const char *interface) {
   const char *perc_str = wifi_perc(interface);
   if (perc_str == NULL || perc_str[0] == '\0') {
@@ -136,23 +136,23 @@ static inline const char *get_wifi_icon_based_on_perc(const char *interface) {
   return icon;
 }
 
-// show corresponding volume icons
+// Show volume icons
 static const char vol[] =
     "muted=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3;}'); \
      volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2;}' | awk '{print $1 * 100}' | cut -d. -f1); \
-     if [ -z \"${muted}\" ]; then \
-         if [ \"$volume\" -le 30 ]; then \
-         printf \"%d \" \"$(echo \"$volume\" )\"; \
-         elif [ \"$volume\" -le 60 ]; then \
-         printf \"%d \" \"$(echo \"$volume\" )\"; \
-         elif [ \"$volume\" -le 100 ]; then \
-         printf \"%d \" \"$(echo \"$volume\" )\"; \
-         fi; \
-     else \
+     if [ -n \"${muted}\" ]; then \
+         printf \"󰸈\"; \
+     elif [ \"$volume\" -eq 0 ]; then \
          printf \"\"; \
+     elif [ \"$volume\" -le 50 ]; then \
+         printf \"\"; \
+     elif [ \"$volume\" -le 99 ]; then \
+         printf \"\"; \
+     else \
+         printf \"\"; \
      fi";
 
-// show mic icons
+// Show mic icons
 static const char mic[] =
     "muted=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $3;}'); \
      volume=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2;}'); \
@@ -164,6 +164,7 @@ static const char mic[] =
          printf \"%.0f \" \"$volume\"; \
      fi";
 
+// Show brightness icons
 static const char *icons[] = {"󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒",
                               "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"};
 static const char *error_icon = "󱧤"; // 定义一个默认图标表示错误或未知状态
@@ -193,16 +194,76 @@ static const char *get_brightness_icon() {
   return error_icon;
 }
 
+// Show battery icons
+static inline const char *
+get_battery_icon_based_on_perc_and_state(const char *bat) {
+  const char *perc_str = battery_perc(bat);
+  const char *state_str = battery_state(bat);
+  if (perc_str == NULL || perc_str[0] == '\0') {
+    return "󰂑"; // 电池未检测到
+  }
+
+  int perc = atoi(perc_str); // 将 battery_perc 返回的百分比字符串转换为整数
+  const char *icon = "";
+  if (strcmp(state_str, "󱟤") == 0) { // 电池放电状态
+    if (perc <= 10)
+      icon = "󰁺";
+    else if (perc <= 20)
+      icon = "󰁻";
+    else if (perc <= 30)
+      icon = "󰁼";
+    else if (perc <= 40)
+      icon = "󰁽";
+    else if (perc <= 50)
+      icon = "󰁾";
+    else if (perc <= 60)
+      icon = "󰁿";
+    else if (perc <= 70)
+      icon = "󰂀";
+    else if (perc <= 80)
+      icon = "󰂁";
+    else if (perc <= 90)
+      icon = "󰂂";
+    else
+      icon = "󰁹";
+  } else if (strcmp(state_str, "󱟦") == 0) { // 电池充电状态
+    if (perc <= 10)
+      icon = "󰢟";
+    else if (perc <= 20)
+      icon = "󰢜";
+    else if (perc <= 30)
+      icon = "󰂆";
+    else if (perc <= 40)
+      icon = "󰂇";
+    else if (perc <= 50)
+      icon = "󰂈";
+    else if (perc <= 60)
+      icon = "󰢝";
+    else if (perc <= 70)
+      icon = "󰂉";
+    else if (perc <= 80)
+      icon = "󰢞";
+    else if (perc <= 90)
+      icon = "󰂊";
+    else
+      icon = "󰂅";
+  } else if (strcmp(state_str, "󱟢") == 0) { // 电池满电状态
+    icon = "󰂄";
+  } else { // 其他状态（如未充电等）
+    icon = "󰚥";
+  }
+  return icon;
+}
+
 static const struct arg args[] = {
     /* function format          argument */
-    {cpu_perc, " 󰍛 %s ", NULL},
-    {ram_perc, "  %s ", NULL},
-    {run_command, " %s", vol},
+    {cpu_perc, " 󰍛%s", NULL},
+    {ram_perc, " %s", NULL},
     {run_command, " %s", mic},
-    {get_brightness_icon, " %s ", NULL}, // 使用 get_brightness_icon 函数
-    {battery_state, " %s", "BAT0"},
-    {battery_perc, "%s ", "BAT0"},
-    {get_wifi_icon_based_on_perc, "%s", wireless_interface},
+    {run_command, "%s", vol},
+    {get_brightness_icon, " %s", NULL}, // 使用 get_brightness_icon 函数
+    {get_battery_icon_based_on_perc_and_state, " %s", "BAT0"},
+    {get_wifi_icon_based_on_perc, " %s", wireless_interface},
     //{wifi_perc, "%s", wireless_interface},
-    {datetime, " %s", "%c"},
+    {datetime, " %s", "%a %b %d %H:%M"},
 };
