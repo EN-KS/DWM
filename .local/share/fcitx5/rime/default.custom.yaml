@@ -1,6 +1,6 @@
 # Archlinux需要下载 rime-ice-git
 patch:
-  # 引用「白霜拼音」配置: /usr/share/rime-data/rime_ice_suggestion.yaml
+  # 引用「白霜拼音」配置: /usr/share/rime-data/rime_frost_suggestion.yaml
   __include: rime_frost_suggestion:/
   # 自定义配置
   __patch:
@@ -11,6 +11,3 @@ patch:
       # 开启逗号句号翻页
       - { when: paging, accept: comma, send: Page_Up }
       - { when: has_menu, accept: period, send: Page_Down }
-    switches:
-      -  name: ascii_mode
-          reset: 1
